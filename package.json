@@ -1,18 +1,22 @@
 {
   "name": "mtg_collect",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "license": "MIT",
   "type": "module",
   "scripts": {
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix .",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.5.3",
     "@stylistic/eslint-plugin-js": "^1.5.3",
-    "@stylistic/eslint-plugin-ts": "^1.5.3"
+    "@stylistic/eslint-plugin-ts": "^1.5.3",
+    "nuxt": "^3.9.3",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5"
   }
 }

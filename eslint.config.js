@@ -1,10 +1,11 @@
 import stylistic from '@stylistic/eslint-plugin'
 
 export default [
-  stylistic.configs.customize({
+  { ...stylistic.configs.customize({
     indent: 2,
     quotes: 'single',
     semi: false,
   }),
-  { files: ['**/*.ts', '**/*.js'] },
+  files: ['**/*.ts', '**/*.js'],
+  ignores: ['node_modules/**/*', '.nuxt/**/*'] },
 ]
