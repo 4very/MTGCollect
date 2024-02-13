@@ -15,8 +15,15 @@
     "@stylistic/eslint-plugin": "^1.5.3",
     "@stylistic/eslint-plugin-js": "^1.5.3",
     "@stylistic/eslint-plugin-ts": "^1.5.3",
+    "@types/node": "^20.11.17",
     "nuxt": "^3.9.3",
+    "prisma": "^5.9.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@prisma/client": "5.9.1"
   }
 }

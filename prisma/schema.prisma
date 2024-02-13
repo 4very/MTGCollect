@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Card {
+  id        Int        @id @default(autoincrement())
+  createdAt DateTime   @default(now())
+  name      String
+  DeckCard  DeckCard[]
+}
+
+model Deck {
+  id       Int        @id @default(autoincrement())
+  DeckCard DeckCard[]
+}
+
+model DeckCard {
+  id     Int  @id @default(autoincrement())
+  deck   Deck @relation(fields: [deckId], references: [id])
+  deckId Int
+  card   Card @relation(fields: [cardId], references: [id])
+  cardId Int
+}
