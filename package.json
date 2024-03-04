@@ -7,6 +7,7 @@
     "lint": "eslint --fix .",
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "compose": "docker compose up",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
