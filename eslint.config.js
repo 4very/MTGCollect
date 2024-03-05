@@ -1,11 +1,7 @@
-import stylistic from '@stylistic/eslint-plugin'
-
-export default [
-  { ...stylistic.configs.customize({
-    indent: 2,
-    quotes: 'single',
-    semi: false,
-  }),
-  files: ['**/*.ts', '**/*.js'],
-  ignores: ['node_modules/**/*', '.nuxt/**/*'] },
-]
+export default {
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+  },
+  extends: ['@nuxt/eslint-config', 'plugin:prettier/recommended'],
+}
