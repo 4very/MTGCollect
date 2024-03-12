@@ -1,3 +1,3 @@
 <template>
-  <div>Hello! i am index.vue</div>
+  <div class="font-body">Hello! i am index.vue</div>
 </template>

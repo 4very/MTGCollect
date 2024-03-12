@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/assets/fonts/Figtree.ttf) format('ttf');
+  }
+  @font-face {
+    font-family: 'CardboardCat';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/assets/fonts/CardboardCat-Regular.otf) format('otf');
+  }
+  @font-face {
+    font-family: 'CardboardCat';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(/assets/fonts/CardboardCat-Light.otf) format('otf');
+  }
+  @font-face {
+    font-family: 'CardboardCat';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/assets/fonts/CardboardCat-Bold.otf) format('otf');
+  }
+  @font-face {
+    font-family: 'CardboardCat';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url(/assets/fonts/CardboardCat-ExtraBold.otf) format('otf');
+  }
+  html {
+    @apply bg-background text-text;
+  }
+}
