@@ -10,13 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Card {
-  id        Int        @id @default(autoincrement())
-  createdAt DateTime   @default(now())
-  name      String
-  DeckCard  DeckCard[]
-}
-
 model Deck {
   id       Int        @id @default(autoincrement())
   DeckCard DeckCard[]
@@ -26,6 +19,123 @@ model DeckCard {
   id     Int  @id @default(autoincrement())
   deck   Deck @relation(fields: [deckId], references: [id])
   deckId Int
-  card   Card @relation(fields: [cardId], references: [id])
+  card   Card @relation(fields: [cardId], references: [cardId])
   cardId Int
+}
+
+model Card {
+  cardId                Int            @id @default(autoincrement())
+  scryfallId            Int
+  oracleId              Int
+  multiverseIds         Int[]
+  mtgOnlineId           Int
+  tcgplayerId           Int
+  cardmarketId          Int
+  name                  String
+  lang                  String
+  releasedAt            DateTime
+  scryfallApiUri        String
+  scryfallUri           String
+  layout                String
+  highresImageAvailable Boolean
+  imageStatus           String
+  image_uris            String[]
+  manaCost              String
+  convertedManaCost     Int
+  typeLine              String
+  oracleText            String
+  colors                String[]
+  color_identity        String[]
+  keywords              String[]
+  legalities            Legalities[]
+  power                 Int
+  toughness             Int
+  reserved              Boolean
+  oversized             Boolean
+  promo                 Boolean
+  reprint               Boolean
+  variation             Boolean
+  setId                 String
+  set                   String
+  setName               String
+  setType               String
+  setUri                String
+  setSearchUri          String
+  scryfallSetUri        String
+  rulingsUri            String
+  printsSearchUri       String
+  collectorNumber       String
+  digital               Boolean
+  rarity                String
+  flavorText            String
+  cardBackId            String
+  artist                String
+  artistIds             String[]
+  illustrationId        String
+  borderColor           String
+  frame                 String
+  fullArt               Boolean
+  textless              Boolean
+  booster               Boolean
+  storySpotlight        Boolean
+  edhrecRank            Int
+  DeckCard              DeckCard[]
+  prices                CardPrices[]
+  relatedUris           RelatedUris[]
+  purchaseUris          PurchaseUris[]
+}
+
+model Legalities {
+  id              Int    @id @default(autoincrement())
+  standard        String
+  future          String
+  historic        String
+  timeless        String
+  gladiator       String
+  pioneer         String
+  explorer        String
+  modern          String
+  legacy          String
+  pauper          String
+  vintage         String
+  penny           String
+  commander       String
+  oathbreaker     String
+  standardbrawl   String
+  brawl           String
+  alchemy         String
+  paupercommander String
+  duel            String
+  oldschool       String
+  premodern       String
+  predh           String
+  Card            Card[]
+}
+
+model CardPrices {
+  id         Int    @id @default(autoincrement())
+  usd        String
+  usd_foil   String
+  usd_etched String
+  eur        String
+  eur_foil   String
+  tix        String
+  Card       Card[]
+}
+
+model RelatedUris {
+  id                          Int    @id @default(autoincrement())
+  gatherer                    String
+  tcgplayer_infinite_articles String
+  tcgplayer_infinite_decks    String
+  edhrec                      String
+  Card                        Card[]
+}
+
+model PurchaseUris {
+  id          Int    @id @default(autoincrement())
+  tcgplayer   String
+  cardmarket  String
+  cardhoarder String
+  Card        Card[]
 }
