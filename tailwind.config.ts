@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { blackA, grass } from '@radix-ui/colors'
 
 export default {
   content: ['./app.vue', './pages/**/*.vue', './components/**/*.vue'],
@@ -15,6 +16,8 @@ export default {
         secondary: '#C2A965',
         accent: '#FFEEBB',
         brown: '#393424',
+        ...blackA,
+        ...grass,
       },
     },
   },
