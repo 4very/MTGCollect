@@ -10,7 +10,8 @@
     "compose": "docker compose up",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prismadev": "prisma migrate dev"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.5.3",
