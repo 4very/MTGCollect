@@ -10,8 +10,13 @@ import {
   PaginationPrev,
   PaginationRoot,
 } from 'radix-vue'
-</script>
+// idk if we actually need to import all this stuff from 'radix.vue' , ^^^
+//anyways, we want to create a const thatll be called every time 'PaginationNext' is pressed, and we need the child script (index) to answer that call and -do something- when the signal is received
+// listening for when the 'next' button is pressed is handled in HTML ( inside the <template> brackets )
+const emit = defineEmits(['nextClick'])
+emit('nextClick')
 
+</script>
 <template>
   <PaginationRoot
     :total="100"
@@ -63,4 +68,6 @@ import {
       </PaginationLast>
     </PaginationList>
   </PaginationRoot>
+
+  <slot>Fallback content</slot> 
 </template>
