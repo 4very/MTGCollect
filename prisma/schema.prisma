@@ -25,8 +25,8 @@ model DeckCard {
 
 model Card {
   cardId                Int            @id @default(autoincrement())
-  scryfallId            Int
-  oracleId              Int
+  scryfallId            String
+  oracleId              String
   multiverseIds         Int[]
   mtgOnlineId           Int
   tcgplayerId           Int
