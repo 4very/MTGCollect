@@ -1,13 +1,26 @@
 import { Prisma, PrismaClient } from "@prisma/client";
-import cardsImport from "./oracle-cards.json";
+import { readFile } from 'fs';
 
-export function insertCards() {
+export function runCardImport() {
+    readFile("./oracle-cards.json", {}, insertCards);
+}
+
+async function insertCards(err: Error | null, data: Buffer) {
+    if (err != null) {
+        console.error("Error reading cards from file");
+        console.error(err);
+    }
+
     let cardsToCreate: Prisma.CardCreateManyInput[] = [];
     let batchSize = 100;
     let i = 0;
     var client = new PrismaClient();
+    var cardsImport = JSON.parse(data.toString());
+
+    console.log('starting import')
 
     for (let [key, value] of Object.entries(cardsImport)) {
+        console.log(`adding ${value.name} to array`)
         cardsToCreate.push({
             scryfallId: value.id,
             oracleId: value.oracle_id,
@@ -64,9 +77,21 @@ export function insertCards() {
         })
         i++;
         if (i >= batchSize) {
+            var logSize = i;
             i = 0;
-            client.card.createMany({ data: cardsToCreate, skipDuplicates: true })
+            let logStr = cardsToCreate.map(ctc => ctc.name)
+                .reduce((prev, cur, curI, array) => {
+                    if (curI == 0) {
+                        return cur;
+                    }
+                    return prev + ',' + cur;
+                }
+                );
+            // console.log(`saving batch with names ${logStr}`)
+            await client.card.createMany({ data: cardsToCreate, skipDuplicates: false })
             cardsToCreate = [];
+            console.log(`Saved batch of ${logSize} to the DB`)
+            // break;
         }
     }
 }

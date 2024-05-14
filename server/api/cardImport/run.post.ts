@@ -1,6 +1,6 @@
-import { insertCards } from "./cardInserter"
+import { runCardImport } from "./cardInserter"
 
 export default defineEventHandler((event) => {
-    insertCards();
+    runCardImport();
     return { "status": "ok" }
 })
