@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --fix .",
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --max-old-space-size=10192",
     "compose": "docker compose up",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

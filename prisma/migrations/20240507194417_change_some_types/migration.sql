@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Card" ALTER COLUMN "scryfallId" SET DATA TYPE TEXT,
+ALTER COLUMN "oracleId" SET DATA TYPE TEXT;

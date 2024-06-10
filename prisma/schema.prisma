@@ -25,31 +25,31 @@ model DeckCard {
 
 model Card {
   cardId                Int            @id @default(autoincrement())
-  scryfallId            Int
-  oracleId              Int
+  scryfallId            String
+  oracleId              String
   multiverseIds         Int[]
-  mtgOnlineId           Int
-  tcgplayerId           Int
-  cardmarketId          Int
+  mtgOnlineId           Int?
+  tcgplayerId           Int?
+  cardmarketId          Int?
   name                  String
   lang                  String
-  releasedAt            DateTime
+  releasedAt            String
   scryfallApiUri        String
   scryfallUri           String
   layout                String
   highresImageAvailable Boolean
   imageStatus           String
   image_uris            String[]
-  manaCost              String
+  manaCost              String?
   convertedManaCost     Int
   typeLine              String
-  oracleText            String
+  oracleText            String?
   colors                String[]
   color_identity        String[]
   keywords              String[]
   legalities            Legalities[]
-  power                 Int
-  toughness             Int
+  power                 String?
+  toughness             String?
   reserved              Boolean
   oversized             Boolean
   promo                 Boolean
@@ -67,18 +67,18 @@ model Card {
   collectorNumber       String
   digital               Boolean
   rarity                String
-  flavorText            String
-  cardBackId            String
+  flavorText            String?
+  cardBackId            String?
   artist                String
   artistIds             String[]
-  illustrationId        String
+  illustrationId        String?
   borderColor           String
   frame                 String
   fullArt               Boolean
   textless              Boolean
   booster               Boolean
   storySpotlight        Boolean
-  edhrecRank            Int
+  edhrecRank            Int?
   DeckCard              DeckCard[]
   prices                CardPrices[]
   relatedUris           RelatedUris[]
