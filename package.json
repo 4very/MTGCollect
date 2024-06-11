@@ -6,17 +6,27 @@
   "scripts": {
     "lint": "eslint --fix .",
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --max-old-space-size=10192",
+    "compose": "docker compose up",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prismadev": "prisma migrate dev"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^1.5.3",
-    "@stylistic/eslint-plugin-js": "^1.5.3",
-    "@stylistic/eslint-plugin-ts": "^1.5.3",
-    "nuxt": "^3.9.3",
-    "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "@stylistic/eslint-plugin": "^1.8.1",
+    "@stylistic/eslint-plugin-js": "^1.8.1",
+    "@stylistic/eslint-plugin-ts": "^1.8.1",
+    "@types/node": "^20.14.2",
+    "nuxt": "^3.11.2",
+    "prisma": "^5.15.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "dependencies": {
+    "@prisma/client": "5.9.1",
+    "@typescript-eslint/parser": "^7.12.0"
   }
 }
